@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    <a href="{% url 'ProfileChange' %}" class="btn btn-warning">
+        Change Profile 
+        </a> 
+        <a href="{% url 'Changepaswwod' %}" class="btn btn-warning">
+        Change Password
+        </a> 
+
+<div class="row gap-5 m-4">
+    <h3 class="text-dark">Total Purchases Found: {{data | length }}</h3>
+    {% for val in data %}
+    <div class="card col-3" style="width: 18rem;">
+        <img src="{{val.car.image.url}}" class="card-img-top" alt="image of the Car">
+        <div class="card-body text-center d-flex flex-column justify-content-center">
+          <h5 class="card-title">{{val.car.name}}</h5>
+          <h6 class="card-title">{{val.car.price}} taka</h6>
+          <h6 class="card-title">{{val.car.barnd_name.name}}</h6>          
+        </div>
+      </div>
+    {% endfor %}
+
+</div>
+
+{% endblock content %}
